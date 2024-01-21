@@ -16,7 +16,7 @@ public class Torch : MonoBehaviour
 
     [HideInInspector] public Volume lightness = new(0);
 
-    void OnValidate()
+    private void OnValidate()
     {
         if (GetComponentInChildren<Sights>() == null)
         {
@@ -29,7 +29,7 @@ public class Torch : MonoBehaviour
         }
     }
 
-    void Start()
+    private void Start()
     {
         sights = GetComponentInChildren<Sights>();
         
@@ -65,7 +65,7 @@ public class Torch : MonoBehaviour
         return sights.targets.Where(t => t.witnessCount.Value == 1);
     }
 
-    void ToggleVisibility(bool toggle)
+    private void ToggleVisibility(bool toggle)
     {
         button.image.enabled = button.interactable = toggle;
     }
